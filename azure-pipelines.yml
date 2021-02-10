@@ -40,6 +40,17 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'D:\a\1\s\syntax\bin\Release'
+    Contents: '**'
+    TargetFolder: 'D:\a\1\a\syntax'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'D:\a\1\s\money\bin\Release'
+    Contents: '**'
+    TargetFolder: 'D:\a\1\a\money'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
