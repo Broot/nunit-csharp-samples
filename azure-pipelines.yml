@@ -47,9 +47,22 @@ steps:
     SourceFolder: 'D:\a\1\s\money\bin\Release'
     Contents: '**'
     TargetFolder: 'D:\a\1\a\money'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'D:\a\1\s\ExpectedExceptionExample\bin\Release'
+    Contents: '**'
+    TargetFolder: 'D:\a\1\a\ExpectedExceptionExample'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'D:\a\1\s\DataDrivenTests\bin\Release'
+    Contents: '**'
+    TargetFolder: 'D:\a\1\a\DataDrivenTests'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'artifacts'
     publishLocation: 'Container'
 
