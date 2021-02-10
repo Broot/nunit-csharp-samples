@@ -26,7 +26,18 @@ jobs:
   steps:
   - template: ci/build.yml
     parameters:
-      solution: Windows_NT
+      solution: '**/*.sln'
       buildPlatform: 'Any CPU'
       buildConfiguration: 'Release'
 
+
+- job: test_project
+  displayName: run unit tests
+  pool:
+    vmImage: 'windows-latest'
+  timeoutInMinutes: 90
+  steps:
+  - template: ci/test.yml
+    parameters:
+      buildPlatform: 'Any CPU'
+      buildConfiguration: 'Release'
