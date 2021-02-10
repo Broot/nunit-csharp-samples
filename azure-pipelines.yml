@@ -4,7 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+# if push was before the pipline finished then wait 
+  batch: true  
+  branches:
+    include:
+      - master
+  paths:
+    exclude:
+      - README.md
+
 
 pool:
   vmImage: 'windows-latest'
