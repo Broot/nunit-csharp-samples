@@ -59,6 +59,7 @@ steps:
 
 - task: DownloadBuildArtifacts@0
   inputs:
+    artifactName: buildresults
     buildType: 'current'
     downloadType: 'single'
     downloadPath: '$(System.ArtifactsDirectory)'
