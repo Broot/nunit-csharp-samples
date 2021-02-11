@@ -22,15 +22,15 @@ variables:
 steps:
 - task: NuGetToolInstaller@1
 
-#- task: NuGetCommand@2
-#  inputs:
-#    restoreSolution: '$(solution)'
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
 
 - powershell:  Get-ChildItem $(System.DefaultWorkingDirectory)
   displayName:  Powershell list
   
 - powershell:   $(System.DefaultWorkingDirectory)\build.ps1
-  displayName:  Powershell list
+  displayName:  Build
   
   
 - task: CopyFiles@2
