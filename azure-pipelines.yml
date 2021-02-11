@@ -20,36 +20,26 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-#- task: NuGetToolInstaller@1
-
-#- task: NuGetCommand@2
-#  inputs:
-#    restoreSolution: '$(solution)'
-
-
   
 - powershell:   $(System.DefaultWorkingDirectory)\build.ps1
-  displayName:  Build
-  
-- powershell:  Get-ChildItem $(System.DefaultWorkingDirectory) -Recurse
-  displayName:  Powershell list
+  displayName:  Build via Cake
   
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'D:\a\1\s\syntax\bin\Release'
+    SourceFolder: '$(System.DefaultWorkingDirectory)\syntax\bin\Release'
     Contents: '**'
-    TargetFolder: 'D:\a\1\a\syntax'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\syntax'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'D:\a\1\s\money\bin\Release'
+    SourceFolder: '$(System.DefaultWorkingDirectory)\money\bin\Release'
     Contents: '**'
-    TargetFolder: 'D:\a\1\a\money'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\money'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'D:\a\1\s\ExpectedExceptionExample\bin\Release'
     Contents: '**'
-    TargetFolder: 'D:\a\1\a\ExpectedExceptionExample'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\ExpectedExceptionExample'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
