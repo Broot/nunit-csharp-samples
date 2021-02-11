@@ -29,6 +29,9 @@ steps:
 - powershell:  Get-ChildItem $(System.DefaultWorkingDirectory)
   displayName:  Powershell list
   
+- powershell:   $(System.DefaultWorkingDirectory)\build.ps1
+  displayName:  Powershell list
+  
   
   
 - task: AzurePowerShell@5
