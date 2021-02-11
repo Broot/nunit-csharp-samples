@@ -33,15 +33,6 @@ steps:
   displayName:  Powershell list
   
   
-  
-- task: AzurePowerShell@5
-  inputs:
-    ScriptType: 'FilePath'
-    ScriptPath: './build.ps1'
-    ScriptArguments: '-Target "Appveyor"'
-    azurePowerShellVersion: 'LatestVersion'
-
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'D:\a\1\s\syntax\bin\Release'
