@@ -20,11 +20,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
+#- task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+#- task: NuGetCommand@2
+#  inputs:
+#    restoreSolution: '$(solution)'
 
 - powershell:  Get-ChildItem $(System.DefaultWorkingDirectory)
   displayName:  Powershell list
@@ -49,12 +49,6 @@ steps:
     SourceFolder: 'D:\a\1\s\ExpectedExceptionExample\bin\Release'
     Contents: '**'
     TargetFolder: 'D:\a\1\a\ExpectedExceptionExample'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: 'D:\a\1\s\DataDrivenTests\bin\Release'
-    Contents: '**'
-    TargetFolder: 'D:\a\1\a\DataDrivenTests'
 
 - task: PublishBuildArtifacts@1
   inputs:
