@@ -50,6 +50,11 @@ steps:
     SourceFolder: 'D:\a\1\s\ExpectedExceptionExample\bin\Release'
     Contents: '**'
     TargetFolder: 'D:\a\1\a\ExpectedExceptionExample'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: 'TestResult.xml'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
