@@ -56,6 +56,12 @@ steps:
     Contents: 'TestResult.xml'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: NUnit
+    testResultsFiles: '$(System.DefaultWorkingDirectory)/TestResult.xml'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
