@@ -26,8 +26,8 @@ steps:
 #  inputs:
 #    restoreSolution: '$(solution)'
 
-- powershell:  Get-ChildItem $(System.DefaultWorkingDirectory)
-  displayName:  Powershell list
+#- powershell:  Get-ChildItem $(System.DefaultWorkingDirectory)
+#  displayName:  Powershell list
   
 - powershell:   $(System.DefaultWorkingDirectory)\build.ps1
   displayName:  Build
